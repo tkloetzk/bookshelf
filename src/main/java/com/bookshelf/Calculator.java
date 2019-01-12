@@ -20,20 +20,20 @@ public class Calculator {
 		// TODO Auto-generated method stub
     	for (var i = 0; i < bookshelf.getNumberOfBooks(); i++) {
     		var book = bookshelf.getBook(i);
-    		var adjustedRating = (getAdjustedRating(
+    		var adjustedRating = ((getAjustedRating(
 					book.getGoodreadsRatingsCount(), 
 					book.getGoodreadsAverageRating(), 
 					bookshelf.getMeanGoodreadsVotes(),
-					bookshelf.getGoodreadsMinVotes()) + getAdjustedRating(
+					bookshelf.getGoodreadsMinVotes()) + getAjustedRating(
         					book.getAmazonRatingsCount(), 
         					book.getAmazonAverageRating(), 
         					bookshelf.getMeanAmazonVotes(),
-        					bookshelf.getAmazonMinVotes()) / 2);
+        					bookshelf.getAmazonMinVotes())) / 2);
         	book.setAdjustedRating(adjustedRating);
     	}
 	}
 
-	public Double getAdjustedRating(int ratingsCount, double averageRating, double meanVote, double minVotes) {
+	private double getAjustedRating(int ratingsCount, double averageRating, double meanVote, double minVotes) {
 		//double rating = averageRating * 2;
 		return (ratingsCount / (ratingsCount + minVotes)) * averageRating + (minVotes / (ratingsCount + minVotes)) * meanVote;
 	}

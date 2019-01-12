@@ -21,7 +21,7 @@ public class Book {
 		this.title = title;
 	}
 	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+		this.isbn = isbn.trim();
 	}
 	public String getISBN() {
 		return isbn;
