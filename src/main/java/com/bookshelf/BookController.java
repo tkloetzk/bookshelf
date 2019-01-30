@@ -21,13 +21,12 @@ public class BookController {
 	@Autowired
 	GoodreadsService goodreadsService;
 
-//	@RequestMapping(value="/{isbns}", method = RequestMethod.GET)
-//	@ResponseBody
-//	public ResponseEntity<Object> getBook(@PathVariable("isbns") final String isbns) {
-//		String[] isbnArray = isbns.split(",");
-//		return new ResponseEntity<>(goodreadsService.getBooksByISBN(isbnArray), HttpStatus.OK);
-//	}
-	
+	@RequestMapping(value="/{isbn}", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<GoodreadsBook> getBook(@PathVariable("isbn") final String isbn) {
+		return new ResponseEntity<>(goodreadsService.getBookByISBN(isbn), HttpStatus.OK);
+	}
+	 
 	@RequestMapping(value="/bookshelf", method = RequestMethod.POST)
 	public ResponseEntity<Object> getBook(@RequestBody List<Book> bookshelf) {
 		return new ResponseEntity<>(goodreadsService.addGoodreadsBooks(bookshelf), HttpStatus.OK);

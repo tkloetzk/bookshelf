@@ -21,6 +21,7 @@ public class GetGoodreadsTask implements Runnable {
 	private final HttpGet httpget;
 	private Book book;
 
+	//Use Generics. Create an abstract book class that these inherit from
 	public GetGoodreadsTask(CloseableHttpClient httpClient, HttpGet httpget, Book currentBook) {
 		this.httpClient = httpClient;
 		this.context = HttpClientContext.create();
@@ -28,6 +29,13 @@ public class GetGoodreadsTask implements Runnable {
 		this.book = currentBook;
 	}
 
+	public GetGoodreadsTask(CloseableHttpClient httpClient, HttpGet httpget, GoodreadsBook currentBook) {
+		this.httpClient = httpClient;
+		this.context = HttpClientContext.create();
+		this.httpget = httpget;
+		//this.book = currentBook;
+	}
+	
 	@Override
 	public void run() {
 		try {

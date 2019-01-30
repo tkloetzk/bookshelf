@@ -52,4 +52,19 @@ public class GoodreadsServiceImpl implements GoodreadsService {
 		return bookshelf.getBooks();
 	}
 
+	@Override
+	public GoodreadsBook getBookByISBN(String isbn) {
+		PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+		RequestConfig localConfig = RequestConfig.custom().setCookieSpec(CookieSpecs.STANDARD).build();
+		CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
+		
+		var currentBook = new GoodreadsBook(isbn);
+		HttpGet httpgetGoodreads = new HttpGet(goodreadsURL + isbn);
+		httpgetGoodreads.setConfig(localConfig);
+		GetGoodreadsTask task = new GetGoodreadsTask(httpClient, httpgetGoodreads, currentBook);
+		task.run();
+		
+		return currentBook;
+	}
+
 }

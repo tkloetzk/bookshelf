@@ -14,6 +14,9 @@ public class Book {
 	private double amazonAverageRating, goodreadsAverageRating, adjustedRating;
 	private int amazonRatingsCount, goodreadsRatingsCount;
 	
+//	public Book(String isbn) {
+//		this.isbn = isbn;
+//	}
 	public String getTitle() {
 		return title;
 	}
