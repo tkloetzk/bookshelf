@@ -74,5 +74,4 @@ public class Book {
 	public void setAdjustedRating(double adjustedRating) {
 		this.adjustedRating = adjustedRating;
 	}
-
 }
