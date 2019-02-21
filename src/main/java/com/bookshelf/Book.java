@@ -10,7 +10,7 @@ import lombok.Data;
 public class Book {
 	@Id
 	private String isbn;
-	private String title, image, href, price;
+	private String title, image, href, price, description;
 	private double amazonAverageRating, goodreadsAverageRating, adjustedRating;
 	private int amazonRatingsCount, goodreadsRatingsCount;
 	
@@ -73,5 +73,11 @@ public class Book {
 	}
 	public void setAdjustedRating(double adjustedRating) {
 		this.adjustedRating = adjustedRating;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getDescription() {
+		return description;
 	}
 }

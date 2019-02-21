@@ -79,6 +79,7 @@ public class GetGoodreadsTask implements Runnable {
 				item++;
 			}
 			var image_url = doc.getElementsByTagName("image_url").item(item).getTextContent();
+			var description = doc.getElementsByTagName("description").item(0).getTextContent();
 //			var isbn = doc.getElementsByTagName("isbn").item(0).getTextContent();
 //			var isbn13 = doc.getElementsByTagName("isbn13").item(0).getTextContent();
 //			var asin = doc.getElementsByTagName("asin").item(0).getTextContent();
@@ -100,6 +101,7 @@ public class GetGoodreadsTask implements Runnable {
 			book.setGoodreadsAverageRating(Double.parseDouble(average_rating));
 			book.setGoodreadsRatingsCount(Integer.parseInt(ratings_count));
 			book.setImage(image_url);
+			book.setDescription(description);
 		} catch (NullPointerException e) {
 			System.out.println("Failed book " + book);
 			//Main.failedBooks.addBook(book);

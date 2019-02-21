@@ -27,7 +27,7 @@ public class BookController {
 		return new ResponseEntity<>(goodreadsService.getBookByISBN(isbn), HttpStatus.OK);
 	}
 	 
-	@RequestMapping(value="/bookshelf", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Object> getBook(@RequestBody List<Book> bookshelf) {
 		return new ResponseEntity<>(goodreadsService.addGoodreadsBooks(bookshelf), HttpStatus.OK);
 	}
