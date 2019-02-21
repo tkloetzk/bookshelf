@@ -10,18 +10,11 @@ import lombok.Data;
 public class GoodreadsBook {
 	@Id
 	private String isbn;
-	private String title;
 	private double goodreadsAverageRating;
 	private int goodreadsRatingsCount;
 	
 	public GoodreadsBook(String isbn) {
 		this.isbn = isbn;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public void setIsbn(String isbn) {
 		this.isbn = isbn.trim();

@@ -15,7 +15,6 @@ public class GoodreadsServiceImpl implements GoodreadsService {
 
 	private final String goodreadsURL = "https://www.goodreads.com/book/title.xml?key=yXZIGleYDqexQC7C40PFg&title=";
 	private Bookshelf bookshelf;
-	private Calculator calculator;
 
 	@Override
 	public List<Book> addGoodreadsBooks(List<Book> books) {
@@ -48,7 +47,6 @@ public class GoodreadsServiceImpl implements GoodreadsService {
 				e.printStackTrace();
 			}
 		}
-		calculator = new Calculator(bookshelf);
 		return bookshelf.getBooks();
 	}
 
